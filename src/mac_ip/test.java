@@ -47,7 +47,7 @@ public class test {
 			e.printStackTrace();
 		}
 		 
-		if(firstInterface != null)
+		if(firstInterface != null)//
 		{
 			try {
 				System.out.println(addressByNetwork.get(firstInterface) + " ip : " + InetAddress.getLocalHost().getHostAddress());
