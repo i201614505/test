@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/AutoCompleter.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="lib/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="lib/JKTable.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
