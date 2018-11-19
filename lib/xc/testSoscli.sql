@@ -24,8 +24,10 @@ select ip from usuario where usuario.usu = 'admin';
 
 select current_user();
 
-call createUser('ventas', 'ventas');
-call updateUser('ventas', 'ventas2', 'ventas2');
+call createUser('admin', 'admin');
+call createUser('admin2', 'admin2');
+
+-- call updateUser('admin2', 'ventas2', 'ventas2');
 
 SELECT LEFT(SESSION_USER() , INSTR(SESSION_USER() , '@') - 1);
 
@@ -204,11 +206,335 @@ INSERT INTO `soscli`.`aseguradora` (`cod`, `nom`, `sig`, `dir`, `dep`, `res`, `r
 
 select * from aseguradora where cod = 0256;
 
-select * from polizas;
+select * from poliza;
 
-delete from aseguradora;
+-- delete from aseguradora;
 
 
-/*ALTER TABLE aseguradora DROP cod;
-ALTER TABLE aseguradora AUTO_INCREMENT = 1;
-ALTER TABLE aseguradora ADD cod bigint UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;*/
+/*ALTER TABLE pais DROP id;
+ALTER TABLE pais AUTO_INCREMENT = 1;
+ALTER TABLE pais ADD id int NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;*/
+
+
+/*ALTER TABLE pais DROP id;
+ALTER TABLE pais AUTO_INCREMENT = 1;
+ALTER TABLE pais ADD id bigint UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;*/
+
+select * from departamentoperu;
+
+select * from empresa;
+
+
+select a.nom, a.dir, dp.des, a.ruc, a.tel from aseguradora a inner join departamentoperu dp on dp.id = a.dep;
+
+
+Execute `select a.nom, a.dir, dp.des, a.ruc, a.tel from aseguradora a inner join departamentoperu dp on dp.id = a.dep`;
+
+select * from view_aseguradora;
+
+USE `soscli`;
+CREATE  OR REPLACE VIEW `view_aseguradora` AS
+select a.nom, a.dir, dp.des, a.ruc, a.tel from aseguradora a inner join departamentoperu dp on dp.id = a.dep;
+
+select * from pais;
+
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PERÚ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'AFGANISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ALBANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ALEMANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ANDORRA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ANGOLA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ANGUILLA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ANTIGUA Y BARBUDA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ANTILLAS HOLANDESAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ARABIA SAUDI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ARGELIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ARGENTINA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ARMENIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ARUBA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'AUSTRALIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'AUSTRIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'AZERBAIYAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BAHAMAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BAHREIN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BANGLADESH');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BARBADOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BELARUS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BELGICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BELICE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BENIN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BERMUDAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BHUTÓN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BOLIVIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BOSNIA Y HERZEGOVINA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BOTSWANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BRASIL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BRUNEI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BULGARIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BURKINA FASO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'BURUNDI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CABO VERDE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CAMBOYA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CAMERUN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CANADA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CHAD');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CHILE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CHINA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CHIPRE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COLOMBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COMORES');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CONGO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COREA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COREA DEL NORTE ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COSTA DE MARFIL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'COSTA RICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CROACIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'CUBA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'DINAMARCA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'DJIBOUTI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'DOMINICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ECUADOR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'EGIPTO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'EL SALVADOR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'EMIRATOS ARABES UNIDOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ERITREA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ESLOVENIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ESPAÑA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ESTADOS UNIDOS DE AMERICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ESTONIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ETIOPIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'FIJI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'FILIPINAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'FINLANDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'FRANCIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GABON');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GAMBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GEORGIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GHANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GIBRALTAR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GRANADA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GRECIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GROENLANDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUADALUPE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUAM');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUATEMALA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUAYANA FRANCESA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUERNESEY');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUINEA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUINEA ECUATORIAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUINEA-BISSAU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'GUYANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'HAITI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'HONDURAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'HONG KONG');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'HUNGRIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'INDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'INDONESIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'IRAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'IRAQ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'IRLANDA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLA DE MAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLA NORFOLK');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLANDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS ALAND');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS CAIMÁN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS COOK');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS DEL CANAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS FEROE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS MALVINAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS MARIANAS DEL NORTE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS MARSHALL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS PITCAIRN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS SALOMON');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS TURCAS Y CAICOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS VIRGENES BRITANICAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISLAS VÍRGENES DE LOS ESTADOS UNIDOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ISRAEL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ITALIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'JAMAICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'JAPON');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'JERSEY');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'JORDANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'KAZAJSTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'KENIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'KIRGUISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'KIRIBATI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'KUWAIT');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LAOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LESOTHO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LETONIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LIBANO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LIBERIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LIBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LIECHTENSTEIN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LITUANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'LUXEMBURGO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MACAO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MACEDONIA ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MADAGASCAR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MALASIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MALAWI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MALDIVAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MALI');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MALTA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MARRUECOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MARTINICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MAURICIO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MAURITANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MAYOTTE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MEXICO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MICRONESIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MOLDAVIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MONACO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MONGOLIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MONTENEGRO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MONTSERRAT');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MOZAMBIQUE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'MYANMAR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NAMIBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NAURU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NEPAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NICARAGUA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NIGER');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NIGERIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NIUE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NORUEGA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NUEVA CALEDONIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'NUEVA ZELANDA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OMAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES  O TERRITORIOS DE AMERICA DEL NORTE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS  DE SUDAMERICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DE AFRICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DE ASIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DE LA UNION EUROPEA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DE OCEANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DEL CARIBE Y AMERICA CENTRAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'OTROS PAISES O TERRITORIOS DEL RESTO DE EUROPA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PAISES BAJOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PAKISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PALAOS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PALESTINA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PANAMA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PAPUA NUEVA GUINEA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PARAGUAY');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PERU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'POLINESIA FRANCESA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'POLONIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PORTUGAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'PUERTO RICO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'QATAR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REINO UNIDO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REP.DEMOCRATICA DEL CONGO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REPUBLICA CENTROAFRICANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REPUBLICA CHECA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REPUBLICA DOMINICANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REPUBLICA ESLOVACA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'REUNION');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'RUANDA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'RUMANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'RUSIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAHARA OCCIDENTAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAMOA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAMOA AMERICANA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN BARTOLOME');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN CRISTOBAL Y NIEVES');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN MARINO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN MARTIN (PARTE FRANCESA)');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN PEDRO Y MIQUELON ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SAN VICENTE Y LAS GRANADINAS');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SANTA HELENA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SANTA LUCIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SANTA SEDE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SANTO TOME Y PRINCIPE');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SENEGAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SERBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SEYCHELLES');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SIERRA LEONA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SINGAPUR');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SIRIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SOMALIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SRI LANKA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SUDAFRICA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SUDAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SUECIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SUIZA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SURINAM');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SVALBARD Y JAN MAYEN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'SWAZILANDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TADYIKISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TAILANDIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TANZANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TIMOR ORIENTAL');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TOGO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TOKELAU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TONGA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TRINIDAD Y TOBAGO');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TUNEZ');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TURKMENISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TURQUIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'TUVALU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'UCRANIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'UGANDA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'URUGUAY');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'UZBEKISTAN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'VANUATU');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'VENEZUELA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'VIETNAM');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'WALLIS Y FORTUNA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'YEMEN');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ZAMBIA');
+INSERT INTO `soscli`.`pais` (`id`, `des`) VALUES (NULL, 'ZIMBABWE');
+
+
+select * from provinciaperu;
+
+select * from departamentoperu;
+
+
+/*ALTER TABLE empresa DROP cod;
+ALTER TABLE empresa AUTO_INCREMENT = 1;
+ALTER TABLE empresa ADD cod int NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;*/
+
+
+select * from empresa;
+
+select * from paciente;
+
+select * from pais;
+
+select * from poliza;
+
+call findPacienteNDOC('46412134');
+
+select * from aseguradora;
+
+select * from beneficio;
+
+select * from chequeo;
+
+call findChequeoNOM('');
+
+call newMoneda(1, "Dolar", 3.32, 3.4, '3.366');
+call newMoneda(2, "Euro", 3.55, 4.05, 'Sin impuesto');
+call newMoneda(3, "Peso Colombiano", 0.001, 0.00155, 'Sin impuesto');
+call newMoneda(4, "Real Brasilero", 0.7, 1.05, 'Sin impuesto');
+
+select * from moneda;
+
+select * from paciente;
+
+select * from admision;
+
+select a.numate, a.numhis, p.nom, p.ape, po.pol, p.ncar, b.des, c.des, e.des from admision a inner join paciente p
+on a.numhis = p.numdoc inner join poliza po
+on p.npol = po.cod inner join beneficio b
+on a.bene = b.cod inner join chequeo c
+on b.cod = c.bene inner join especialidad e
+on a.espe = e.id;
+
+call executeQuery('select a.nom, d.des, a.ruc from aseguradora a inner join departamentoperu d
+on a.dep = d.id where a.nom like concat(\'%\', \'paci\', \'%\')');
+
+select a.nom, d.des, a.ruc from aseguradora a inner join departamentoperu d
+on a.dep = d.id where a.nom like concat('%', 'paci', '%');
+
