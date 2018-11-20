@@ -525,12 +525,15 @@ select * from paciente;
 
 select * from admision;
 
-select a.numate, a.numhis, p.nom, p.ape, po.pol, p.ncar, b.des, c.des, e.des from admision a inner join paciente p
+select a.numate, a.numhis, concat(p.nom,  ' ', p.ape) as nomPa, po.pol, p.ncar, b.des, c.des, e.des from admision a inner join paciente p
 on a.numhis = p.numdoc inner join poliza po
 on p.npol = po.cod inner join beneficio b
-on a.bene = b.cod inner join chequeo c
+on a.bene = b.cod left join chequeo c
 on b.cod = c.bene inner join especialidad e
-on a.espe = e.id;
+on a.espe = e.id 
+group by a.numate
+having nomPa like concat('%', 'su', '%')
+order by a.numate desc;
 
 call executeQuery('select a.nom, d.des, a.ruc from aseguradora a inner join departamentoperu d
 on a.dep = d.id where a.nom like concat(\'%\', \'paci\', \'%\')');
@@ -538,3 +541,13 @@ on a.dep = d.id where a.nom like concat(\'%\', \'paci\', \'%\')');
 select a.nom, d.des, a.ruc from aseguradora a inner join departamentoperu d
 on a.dep = d.id where a.nom like concat('%', 'paci', '%');
 
+/*ALTER TABLE admision DROP numate;
+ALTER TABLE admision AUTO_INCREMENT = 1;
+ALTER TABLE admision ADD numate int NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;*/
+
+ALTER TABLE `admision` 
+DROP foreign key `admision_ibfk_3`;
+
+select * from viewadmision 
+having nomPa like concat('%', 'su', '%')
+order by numate desc;
