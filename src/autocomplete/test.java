@@ -50,6 +50,7 @@ public class test extends JDialog implements ActionListener {
 		btnPrint.addActionListener(this);
 		btnPrint.setBounds(280, 173, 89, 32);
 		getContentPane().add(btnPrint);
+		
 		auto.addItem("sede");
 		auto.addItem("dni");
 		auto.addItem("nombre");
